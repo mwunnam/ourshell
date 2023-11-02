@@ -5,9 +5,12 @@ int main()
 {
 	char *input;
 	size_t buffer;
-
+	pid_t child_pid;
+	int status;
 
 	buffer = 0;
+	status = 0;
+
 	input = NULL;
 
 	while (1)
@@ -20,7 +23,12 @@ int main()
 			return (0);
 		}
 
-		_print(input);
+		child_pid = fork();
+		if (child_pid == 0)
+		{
+			_print("I Am the child here\n");
+		}
+		wait(&status);
 	}
 free(input);
 return (0);
