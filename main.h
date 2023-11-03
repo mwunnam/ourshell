@@ -28,7 +28,8 @@
 /* FUNCTIONS */
 int _strlen(char *s);
 int _print(char *s);
-
+char *_strdup(const char *s);
+void _trimer(char *s);
 /* END OF DEFINED FUNCTIONS */
 
 #endif
