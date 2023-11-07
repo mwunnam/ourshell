@@ -20,10 +20,10 @@ char *_strdup(const char *s)
 
 	while (s[len] != '\0')
 	{
-		len++
+		len++;
 	}
 
-	strdup = malloc(sizeof(char) * (len + 1);
+	strdup = malloc(sizeof(char) * (len + 1));
 	if (strdup == NULL)
 		return (NULL);
 
