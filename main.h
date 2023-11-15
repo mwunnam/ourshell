@@ -1,35 +1,27 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-/* HEADER FILES */
+
 #include <stdio.h>
-#include <unistd.h>
+#include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-/*END OF HEADER FILES */
 
-/* MACROS*/
+/** MACROS ****/
+#define DELIM " \n"
+/** FUNCTIONS **/
 
-
-
-
-/* END OF MACROS */
-
-
-/* DEFINE DATATYPES */
-
-/* END OF DEFINED DATATYPES */
-
-
-
-
-
-/* FUNCTIONS */
+char **_tokenizer(char *s, int argc);
+int _token_count(char *s);
+void _free_tokens(int argc, char **argv);
+void _command_exe(char *input, char **env);
+char *_command_path_checker(char *argv);
+int is_emptyspace(const char *s);
+char *_strdup(const char *s);
 int _strlen(char *s);
 int _print(char *s);
-char *_strdup(const char *s);
-void _trimer(char *s);
-/* END OF DEFINED FUNCTIONS */
+void trimer(char *s);
 
 #endif
