@@ -21,8 +21,8 @@ void _command_exe(char *input, char **env)
 	if (argv[0] == NULL)
 	{
 		_print("Command not found\n");
-	/**	free(input);**/
-/**		_free_tokens(argc, argv); **/
+		free(argv[0]);
+		_free_tokens(argc, argv);
 		return;
 	}
 
@@ -40,6 +40,8 @@ void _command_exe(char *input, char **env)
 			if (run == -1)
 			{
 				_print("command does not exist\n");
+				free(argv[0]);
+				_free_tokens(argc, argv);
 				exit(0);
 			}
 		}
@@ -49,4 +51,6 @@ void _command_exe(char *input, char **env)
 			_free_tokens(argc, argv);
 			return;
 		}
+_free_tokens(argc, argv);
+free(input);
 }

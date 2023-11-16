@@ -12,12 +12,18 @@ char *_command_path_checker(char *argv)
 	char *path, *path_copy, *loc_token, *command_loc;
 	size_t command_loc_size;
 
-	if (strchr(argv, '/') == NULL)
+	if (strchr(argv, '/') != NULL)
 	{
-		path = getenv("PATH");
-		path_copy = _strdup(path);
+		return (argv);
+	}
+	path = getenv("PATH");
+	path_copy = _strdup(path);
+	if (path_copy == NULL)
+	{
+		return (0);
+	}
 
-		loc_token = strtok(path_copy, ":");
+	loc_token = strtok(path_copy, ":");
 
 		while (loc_token != NULL)
 		{
@@ -42,6 +48,6 @@ char *_command_path_checker(char *argv)
 		}
 	free(path_copy);
 	return (NULL);
-	}
+
 return (argv);
 }
